@@ -1,27 +1,21 @@
 ---
 version: '3'
 services:
-    php:
+    deploy:
         build:
             context: ./docker
-            dockerfile: php.Dockerfile
+            dockerfile: Deploy.Dockerfile
         volumes:
-            - './app:/var/www/html'
+            - './tmp:/tmp/java-war-project/target'
         depends_on:
             - mariadb
-    nginx:
-        image: nginx:latest
+    prod:
+        build:
+            context: ./docker
+            dockerfile: Prod.Dockerfile
         ports:
-            - '80:80'
-            - '443:443'
+            - '8181:8080'
         links:
-          - 'php'
+          - 'deploy'
         volumes:
-          - './app:/var/www/html/'
-          - './config/nginx:/etc/nginx/conf.d'
-    mariadb:
-        image: mariadb:11
-        environment:
-            MYSQL_ROOT_PASSWORD: 'zhpDX9AA'
-        volumes:
-          - ./mysql:/var/lib/mysql
+          - './tmp:/tmp/java-war-project/target'
