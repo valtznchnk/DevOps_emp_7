@@ -7,8 +7,6 @@ services:
             dockerfile: Deploy.Dockerfile
         volumes:
             - './tmp:/tmp/java-war-project/target'
-        depends_on:
-            - mariadb
     prod:
         build:
             context: ./prod
