@@ -7,3 +7,4 @@ RUN git clone https://github.com/vinayakrj/java-war-project.git
 WORKDIR /tmp/java-war-project/
 RUN mvn package
 VOLUME /home/tmp
+WORKDIR /tmp/java-war-project/target/

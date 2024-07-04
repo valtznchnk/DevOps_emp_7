@@ -7,4 +7,13 @@ services:
             dockerfile: Deploy.Dockerfile
         volumes:
             - '/home/tmp:/tmp/java-war-project/target'
-
+    prod:
+        build:
+            context: ./prod
+            dockerfile: Prod.Dockerfile
+        ports:
+            - '8181:8080'
+        links:
+          - 'deploy'
+        volumes:
+          - '/home/tmp:/usr/local/tomcat/webapps'
