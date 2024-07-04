@@ -2,5 +2,6 @@ FROM tomcat:latest
 RUN apt-get update && apt-get install maven -y && apt install git -y
 ENV JAVA_HOME /opt/java/openjdk
 RUN export JAVA_HOME
-WORKDIR /tmp/java-war-project/target/
-RUN cp /tmp/java-war-project/target/my-app.war /usr/local/tomcat/webapps/
+VOLUME /home/devops_learning/employment_7/tmp
+WORKDIR /home/devops_learning/employment_7/tmp
+RUN cp /home/devops_learning/employment_7/tmp/my-app.war /usr/local/tomcat/webapps/
