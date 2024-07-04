@@ -3,7 +3,7 @@ version: '3'
 services:
     deploy:
         build:
-            context: ./docker
+            context: ./deploy
             dockerfile: Deploy.Dockerfile
         volumes:
             - './tmp:/tmp/java-war-project/target'
@@ -11,7 +11,7 @@ services:
             - mariadb
     prod:
         build:
-            context: ./docker
+            context: ./prod
             dockerfile: Prod.Dockerfile
         ports:
             - '8181:8080'
