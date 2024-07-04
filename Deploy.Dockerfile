@@ -6,4 +6,6 @@ WORKDIR /tmp/
 RUN git clone https://github.com/vinayakrj/java-war-project.git
 WORKDIR /tmp/java-war-project/
 RUN mvn package
+WORKDIR /tmp/java-war-project/target
+RUN cp /tmp/java-war-project/target/my-app.war /home/tmp
 VOLUME /home/tmp
