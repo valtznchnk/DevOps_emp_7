@@ -17,4 +17,4 @@ services:
         links:
           - 'deploy'
         volumes:
-          - /home/tmp:/usr/local/tomcat/webapps/
+          - /home/tmp:/tmp
