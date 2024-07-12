@@ -6,7 +6,7 @@ services:
             context: ./deploy
             dockerfile: Deploy.Dockerfile
         volumes:
-            - /tmp:/tmp
+            - /tmp:/home/java-war-project/target/
     prod:
         build:
             context: ./prod
