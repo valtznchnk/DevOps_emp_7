@@ -6,4 +6,3 @@ WORKDIR /home/
 RUN git clone https://github.com/vinayakrj/java-war-project.git
 WORKDIR /home/java-war-project/
 RUN mvn package
-RUN cp /home/java-war-project/target/my-app.war /shared_data
