@@ -6,7 +6,7 @@ services:
             context: ./deploy
             dockerfile: Deploy.Dockerfile
         volumes:
-            - /home/tmp:/tmp
+            - shared_volume:/shared_data
     prod:
         build:
             context: ./prod
@@ -16,4 +16,6 @@ services:
         links:
           - 'deploy'
         volumes:
-          - /home/tmp:/usr/local/tomcat/webapps/
+          - shared_volume:/shared_data
+volumes:
+  shared_volume:
