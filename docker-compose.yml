@@ -6,7 +6,7 @@ services:
             context: ./deploy
             dockerfile: Deploy.Dockerfile
         volumes:
-            - shared_volume:/shared_data
+            - /home/devops_learning/employment_7/tmp://home/java-war-project/target
     prod:
         build:
             context: ./prod
@@ -16,6 +16,5 @@ services:
         links:
           - 'deploy'
         volumes:
-          - shared_volume:/shared_data
-volumes:
-  shared_volume:
+          - /home/devops_learning/employment_7/tmp:/usr/local/tomcat/webapps
+
