@@ -6,7 +6,7 @@ services:
             context: ./deploy
             dockerfile: Deploy.Dockerfile
         volumes:
-            - /home/devops_learning/employment_7/temp:/app/java-war-project/target
+            - myapp:/app/java-war-project/target
     prod:
         build:
             context: ./prod
@@ -15,6 +15,9 @@ services:
             - '8181:8080'
         links:
           - 'deploy'
+        depends_on:
+          - deploy
         volumes:
-          - /home/devops_learning/employment_7/temp:/usr/local/tomcat/webapps
-
+          - myapp:/usr/local/tomcat/webapps
+volumes:
+    myapp:
