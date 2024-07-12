@@ -5,5 +5,4 @@ RUN export JAVA_HOME
 WORKDIR /tmp/
 RUN rm -R java-war-project/
 RUN git clone https://github.com/vinayakrj/java-war-project.git
-WORKDIR /tmp/java-war-project/
-RUN mvn package
+
