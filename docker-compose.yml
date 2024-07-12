@@ -6,7 +6,8 @@ services:
             context: ./deploy
             dockerfile: Deploy.Dockerfile
         volumes:
-            - shared_folder:/home/tmp
+            - /tmp:/tmp
+        command: sh -c "cd /tmp && cp /tmp/java-war-project/target/my-app.war /tmp"
     prod:
         build:
             context: ./prod
@@ -16,6 +17,4 @@ services:
         links:
           - 'deploy'
         volumes:
-          - shared_folder:/home/tmp
-volumes:
-    shared_folder:
+          - /tmp:/tmp
