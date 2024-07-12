@@ -6,7 +6,8 @@ services:
             context: ./deploy
             dockerfile: Deploy.Dockerfile
         volumes:
-            - /home/tmp:/home/java-war-project/target/
+            - /home/tmp:/tmp
+        command: sh -c "cp /home/java-war-project/target/war-app/my-app.war /tmp"
     prod:
         build:
             context: ./prod
